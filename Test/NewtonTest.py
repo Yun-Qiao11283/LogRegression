@@ -1,12 +1,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.datasets import make_circles
 from Tools.LogReg import LogisticRegression
 
-X,y = make_circles(n_samples=500, factor=0.5, noise=0.05, random_state=42 )
+np.random.seed(42)
+
+X_class0 = np.random.randn(50,2) + np.array([-2, -2])
+X_class1 = np.random.randn(50,2) + np.array([2,2])
+X = np.vstack((X_class0, X_class1))
+y = np.array([0]*50 + [1]*50)
 
 model = LogisticRegression()
-model.fit(X, y)
+model.Hessian_fit(X, y)
 
 w1, w2 = model.weights[0], model.weights[1]
 b = model.bias

@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.sparse import hstack
+
 
 def sigmoid(z):
     return 1/(1+np.exp(-z))
@@ -10,6 +12,45 @@ class LogisticRegression:
         self.num_iterations = num_iterations
         self.weights = None
         self.bias = None
+        self.betas = None
+
+    def Hessian(self, X, y_pred):
+        m = X.shape[0]
+        s = (y_pred * (1 - y_pred)).reshape(-1, 1)
+
+        d2J_db2 = np.sum(s) / m
+        d2J_dw2 = (X.T @ (s * X)) / m
+        d2J_dwdb = (np.sum(s * X, axis=0)) / m
+
+        #b, w1, w2
+        row1 = np.hstack([d2J_db2, d2J_dwdb])
+        row23 = np.hstack([d2J_dwdb.reshape(-1, 1), d2J_dw2])
+
+        hessian = np.vstack([row1, row23])
+
+        return hessian
+
+
+    def Hessian_fit(self, X, y):
+        y = y.reshape(-1, 1)
+        num_samples, num_features = X.shape
+        ones = np.ones((num_samples,1))
+        X_hat = np.hstack([ones, X])
+        self.betas = np.zeros(num_features + 1)
+        for _ in range(self.num_iterations):
+            linear_model = np.dot(X_hat, self.betas.reshape(-1,1))
+            y_pred = sigmoid(linear_model).reshape(-1, 1)
+            gradient = (1 / num_samples) * np.dot(X_hat.T, (y_pred - y))
+            H = self.Hessian(X, y_pred)
+            epsilon = 1e-4  # 正则化强度
+            H_reg = H + epsilon * np.eye(H.shape[0])
+            p = np.linalg.solve(H_reg, -gradient).flatten()
+            self.betas += p
+            if np.linalg.norm(p) < 1e-6:
+                break
+        self.weights = self.betas[1:]
+        self.bias = self.betas[0]
+
 
     def fit(self, X, y):
         num_samples, num_features = X.shape
