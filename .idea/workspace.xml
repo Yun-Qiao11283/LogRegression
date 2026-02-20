@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="881f1015-0f39-4c6c-9ab0-d2905036482d" name="Changes" comment="LogRegression">
-      <change afterPath="$PROJECT_DIR$/Test/NewtonTest.py" afterDir="false" />
+    <list default="true" id="881f1015-0f39-4c6c-9ab0-d2905036482d" name="Changes" comment="Hessian">
+      <change afterPath="$PROJECT_DIR$/Test/CircleDateTest2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/CircleDateTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test/CircleDateTest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tools/LogReg.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools/LogReg.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +45,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.CircleDateTest.executor": "Run",
+    "Python.CircleDateTest2.executor": "Run",
     "Python.LogRegTest.executor": "Run",
     "Python.NewtonTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -76,11 +76,20 @@
       <option name="project" value="LOCAL" />
       <updated>1771206621517</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Hessian">
+      <option name="closed" value="true" />
+      <created>1771531192253</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1771531192253</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="LogRegression" />
-    <option name="LAST_COMMIT_MESSAGE" value="LogRegression" />
+    <MESSAGE value="Hessian" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hessian" />
   </component>
 </project>
