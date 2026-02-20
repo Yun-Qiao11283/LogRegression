@@ -22,16 +22,6 @@ plt.scatter(X[y == 0, 0], X[y == 0, 1], color='red', label='Class 0', alpha=0.6,
 
 plt.scatter(X[y == 1, 0], X[y == 1, 1], color='blue', label='Class 1', alpha=0.6, edgecolors='k')
 
-if w2 != 0:
-    x1_line = np.linspace(X[:, 0].min() - 1, X[:, 0].max() + 1, 100)
-    x2_line = (-w1 * x1_line - b) / w2
-    plt.plot(x1_line, x2_line, color='green', linestyle='-', linewidth=2, label='Decision Boundary')
-else:
-    x1_line_val = -b / w1
-    plt.axvline(x=x1_line_val, color='green', linestyle='-', linewidth=2, label='Decision Boundary')
-
-
-
 plt.title(r"Logistic Regression Decision Boundary: $w_1 x_1 + w_2 x_2 + w_3 (x_1^2 + x_2^2) + b = 0$", fontsize=14)
 plt.xlabel(r"Feature $x_1$", fontsize=12)
 plt.ylabel(r"Feature $x_2$", fontsize=12)
